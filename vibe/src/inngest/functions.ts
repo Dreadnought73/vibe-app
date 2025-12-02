@@ -57,6 +57,7 @@ export const codeAgentFunction = inngest.createFunction(
       system: PROMPT,
       model: openai({ 
         model: "gpt-4.1",
+        // apiKey: process.env.OPENAI_API_KEY,
         defaultParameters: {
           temperature: 0.1,
         }
@@ -170,7 +171,7 @@ export const codeAgentFunction = inngest.createFunction(
       agents: [codeAgent],
       maxIter: 15, // this limits the number of loops in the cycle
       defaultState: state,
-      router: async({network}) => {
+      router: ({network}) => {
         const summary = network.state.data.summary;
 
         if (summary) {
@@ -178,7 +179,7 @@ export const codeAgentFunction = inngest.createFunction(
         }
         return codeAgent;
       }
-    })
+    });
 
     const result = await network.run(event.data.value, {state});
 

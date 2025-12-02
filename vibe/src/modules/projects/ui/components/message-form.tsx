@@ -1,3 +1,5 @@
+"use client";
+
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import TextareaAutosize from "react-textarea-autosize";
@@ -12,7 +14,7 @@ import { useTRPC } from "@/trpc/client";
 import { Button } from "@/components/ui/button";
 import { Form, FormField } from "@/components/ui/form";
 import { Usage } from "./usage";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 interface Props {
     projectId: string;

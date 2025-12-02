@@ -1,3 +1,4 @@
+"use client";
 import { Fragment } from "@/generated/prisma/client";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -24,7 +25,7 @@ export function FragmentWeb ({data}: Props) {
     };
 
     return (
-        <div className="flex float-col w-full h-full">
+        <div className="flex flex-col w-full h-full">
             <div className="p-2 border-b bg-sidebar flex items-center gap-x-2">
                 <Hint text="Refresh" side="bottom" align="start">
                     <Button size="sm" variant="outline" onClick={onRefresh}>
